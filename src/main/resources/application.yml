@@ -1,5 +1,5 @@
 server:
-  port: 50000 # 端口
+  port: 49999 # 端口
 spring:
   application:
     name: min-mall # 项目名称
