@@ -2103,7 +2103,549 @@
                                             "preProcessors": [],
                                             "postProcessors": [],
                                             "auth": {},
-                                            "items": []
+                                            "items": [
+                                                {
+                                                    "name": "根据分类ID分页获取基本属性列表",
+                                                    "api": {
+                                                        "id": "24984572",
+                                                        "method": "get",
+                                                        "path": "/attribute/base/page",
+                                                        "parameters": {
+                                                            "query": [
+                                                                {
+                                                                    "required": true,
+                                                                    "description": "当前页码",
+                                                                    "type": "integer",
+                                                                    "name": "pageNumber",
+                                                                    "sampleValue": "1"
+                                                                },
+                                                                {
+                                                                    "required": true,
+                                                                    "description": "页面大小",
+                                                                    "type": "integer",
+                                                                    "name": "pageSize",
+                                                                    "sampleValue": "10"
+                                                                },
+                                                                {
+                                                                    "required": false,
+                                                                    "description": "分类ID",
+                                                                    "type": "integer",
+                                                                    "name": "categoryId",
+                                                                    "sampleValue": ""
+                                                                }
+                                                            ]
+                                                        },
+                                                        "auth": {},
+                                                        "commonParameters": {
+                                                            "query": [],
+                                                            "body": [],
+                                                            "cookie": [],
+                                                            "header": []
+                                                        },
+                                                        "responses": [
+                                                            {
+                                                                "id": "56613679",
+                                                                "name": "成功",
+                                                                "code": 200,
+                                                                "contentType": "json",
+                                                                "jsonSchema": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "code": {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        "msg": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "data": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "list": {
+                                                                                    "type": "array",
+                                                                                    "items": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                            "id": {
+                                                                                                "type": "integer",
+                                                                                                "title": "属性id"
+                                                                                            },
+                                                                                            "name": {
+                                                                                                "type": "string",
+                                                                                                "title": "属性名"
+                                                                                            },
+                                                                                            "valueType": {
+                                                                                                "type": "integer",
+                                                                                                "title": "值类型",
+                                                                                                "description": "1单选 2多选"
+                                                                                            },
+                                                                                            "values": {
+                                                                                                "title": "可选值列表",
+                                                                                                "type": [
+                                                                                                    "array",
+                                                                                                    "null"
+                                                                                                ],
+                                                                                                "items": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            },
+                                                                                            "status": {
+                                                                                                "type": "boolean",
+                                                                                                "title": "状态"
+                                                                                            },
+                                                                                            "categoryId": {
+                                                                                                "type": "integer",
+                                                                                                "title": "所属分类ID"
+                                                                                            },
+                                                                                            "categoryName": {
+                                                                                                "type": "string",
+                                                                                                "title": "所属分类名称"
+                                                                                            },
+                                                                                            "groupId": {
+                                                                                                "type": "integer",
+                                                                                                "title": "属性分组ID"
+                                                                                            },
+                                                                                            "groupName": {
+                                                                                                "type": "string",
+                                                                                                "title": "属性分组名称"
+                                                                                            }
+                                                                                        },
+                                                                                        "required": [
+                                                                                            "id",
+                                                                                            "name",
+                                                                                            "valueType",
+                                                                                            "values",
+                                                                                            "status",
+                                                                                            "categoryId",
+                                                                                            "categoryName",
+                                                                                            "groupId",
+                                                                                            "groupName"
+                                                                                        ],
+                                                                                        "x-apifox-orders": [
+                                                                                            "id",
+                                                                                            "name",
+                                                                                            "valueType",
+                                                                                            "values",
+                                                                                            "status",
+                                                                                            "categoryId",
+                                                                                            "categoryName",
+                                                                                            "groupId",
+                                                                                            "groupName"
+                                                                                        ]
+                                                                                    }
+                                                                                },
+                                                                                "pageNumber": {
+                                                                                    "type": "integer"
+                                                                                },
+                                                                                "pageSize": {
+                                                                                    "type": "integer"
+                                                                                },
+                                                                                "totalPage": {
+                                                                                    "type": "integer"
+                                                                                },
+                                                                                "totalRow": {
+                                                                                    "type": "integer"
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "list",
+                                                                                "pageNumber",
+                                                                                "pageSize",
+                                                                                "totalPage",
+                                                                                "totalRow"
+                                                                            ],
+                                                                            "x-apifox-orders": [
+                                                                                "list",
+                                                                                "pageNumber",
+                                                                                "pageSize",
+                                                                                "totalPage",
+                                                                                "totalRow"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "code",
+                                                                        "msg",
+                                                                        "data"
+                                                                    ],
+                                                                    "x-apifox-orders": [
+                                                                        "code",
+                                                                        "msg",
+                                                                        "data"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "responseExamples": [
+                                                            {
+                                                                "name": "成功示例 ",
+                                                                "data": "{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": {\n        \"list\": [\n            {\n                \"id\": 2,\n                \"name\": \"建油于委阶两\",\n                \"valueType\": 1,\n                \"values\": [\n                    \"aute nulla elit dolor\",\n                    \"anim proident mollit amet laborum\",\n                    \"enim sit\",\n                    \"incididunt eiusmod\",\n                    \"aute ut quis proident elit\"\n                ],\n                \"status\": false,\n                \"categoryId\": 66,\n                \"categoryName\": \"燃气热水器\",\n                \"groupId\": 6,\n                \"groupName\": \"前置摄像头\"\n            },\n            {\n                \"id\": 3,\n                \"name\": \"况各必或\",\n                \"valueType\": 1,\n                \"values\": [\n                    \"据他今两\",\n                    \"王见美员\",\n                    \"团完运子向\",\n                    \"等道特文它度\",\n                    \"万图教压运外\"\n                ],\n                \"status\": false,\n                \"categoryId\": 33,\n                \"categoryName\": \"空调套装\",\n                \"groupId\": 1,\n                \"groupName\": \"主体\"\n            },\n            {\n                \"id\": 15,\n                \"name\": \"划因已\",\n                \"valueType\": 1,\n                \"values\": [\n                    \"委能路进离领\",\n                    \"全律回记干教\",\n                    \"太身命\"\n                ],\n                \"status\": false,\n                \"categoryId\": 35,\n                \"categoryName\": \"挂机1.5匹\",\n                \"groupId\": 3,\n                \"groupName\": \"主芯片\\r\\n\"\n            },\n            {\n                \"id\": 16,\n                \"name\": \"准还布四结\",\n                \"valueType\": 1,\n                \"values\": null,\n                \"status\": true,\n                \"categoryId\": 32,\n                \"categoryName\": \"空调柜机\",\n                \"groupId\": 2,\n                \"groupName\": \"基本信息\\r\\n\"\n            },\n            {\n                \"id\": 17,\n                \"name\": \"满果变\",\n                \"valueType\": 1,\n                \"values\": [\n                    \"形布才\",\n                    \"候科技影象\",\n                    \"切科响边\",\n                    \"记一质\",\n                    \"运低能想院\"\n                ],\n                \"status\": false,\n                \"categoryId\": 81,\n                \"categoryName\": \"料理机\",\n                \"groupId\": 2,\n                \"groupName\": \"基本信息\\r\\n\"\n            }\n        ],\n        \"pageNumber\": 1,\n        \"pageSize\": 10,\n        \"totalPage\": 1,\n        \"totalRow\": 5\n    }\n}",
+                                                                "responseId": 56613679,
+                                                                "ordering": 1
+                                                            }
+                                                        ],
+                                                        "requestBody": {
+                                                            "type": "none",
+                                                            "parameters": []
+                                                        },
+                                                        "description": "",
+                                                        "tags": [],
+                                                        "status": "developing",
+                                                        "serverId": "",
+                                                        "operationId": "",
+                                                        "sourceUrl": "",
+                                                        "ordering": 10,
+                                                        "cases": [],
+                                                        "mocks": [],
+                                                        "customApiFields": "{}",
+                                                        "advancedSettings": {}
+                                                    }
+                                                },
+                                                {
+                                                    "name": "新增基本属性",
+                                                    "api": {
+                                                        "id": "24988452",
+                                                        "method": "post",
+                                                        "path": "/attribute/base/create",
+                                                        "parameters": {},
+                                                        "auth": {},
+                                                        "commonParameters": {
+                                                            "query": [],
+                                                            "body": [],
+                                                            "cookie": [],
+                                                            "header": []
+                                                        },
+                                                        "responses": [
+                                                            {
+                                                                "id": "56623173",
+                                                                "name": "成功",
+                                                                "code": 200,
+                                                                "contentType": "json",
+                                                                "jsonSchema": {
+                                                                    "type": "object",
+                                                                    "properties": {}
+                                                                }
+                                                            }
+                                                        ],
+                                                        "responseExamples": [
+                                                            {
+                                                                "name": "成功示例 ",
+                                                                "data": "{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": null\n}",
+                                                                "responseId": 56623173,
+                                                                "ordering": 1
+                                                            },
+                                                            {
+                                                                "name": "分类ID不存在",
+                                                                "data": "{\n    \"code\": 1,\n    \"msg\": \"失败\",\n    \"data\": \"分类ID不存在\"\n}",
+                                                                "responseId": 56623173,
+                                                                "ordering": 2
+                                                            },
+                                                            {
+                                                                "name": "仅支持三级分类ID",
+                                                                "data": "{\n    \"code\": 1,\n    \"msg\": \"失败\",\n    \"data\": \"仅支持三级分类ID\"\n}",
+                                                                "responseId": 56623173,
+                                                                "ordering": 3
+                                                            },
+                                                            {
+                                                                "name": "属性分组ID不存在",
+                                                                "data": "{\n    \"code\": 1,\n    \"msg\": \"失败\",\n    \"data\": \"属性分组ID不存在\"\n}",
+                                                                "responseId": 56623173,
+                                                                "ordering": 4
+                                                            }
+                                                        ],
+                                                        "requestBody": {
+                                                            "type": "application/json",
+                                                            "parameters": [],
+                                                            "jsonSchema": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "name": {
+                                                                        "type": "string",
+                                                                        "title": "属性名",
+                                                                        "mock": {
+                                                                            "mock": "@ctitle"
+                                                                        }
+                                                                    },
+                                                                    "valueType": {
+                                                                        "type": "integer",
+                                                                        "minimum": 1,
+                                                                        "maximum": 2,
+                                                                        "title": "值类型",
+                                                                        "description": "1单选 2多选"
+                                                                    },
+                                                                    "values": {
+                                                                        "title": "可选值列表",
+                                                                        "type": [
+                                                                            "array",
+                                                                            "null"
+                                                                        ],
+                                                                        "items": {
+                                                                            "type": "string",
+                                                                            "mock": {
+                                                                                "mock": "@ctitle"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "status": {
+                                                                        "title": "状态",
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "categoryId": {
+                                                                        "title": "所属分类ID",
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "groupId": {
+                                                                        "title": "属性分组ID",
+                                                                        "type": "integer"
+                                                                    }
+                                                                },
+                                                                "x-apifox-orders": [
+                                                                    "name",
+                                                                    "valueType",
+                                                                    "values",
+                                                                    "status",
+                                                                    "categoryId",
+                                                                    "groupId"
+                                                                ],
+                                                                "required": [
+                                                                    "name",
+                                                                    "valueType",
+                                                                    "values",
+                                                                    "status",
+                                                                    "categoryId",
+                                                                    "groupId"
+                                                                ]
+                                                            },
+                                                            "sampleValue": "{\n    \"name\": \"划因已\",\n    \"valueType\": 1,\n    \"values\": [\n        \"委能路进离领\",\n        \"全律回记干教\",\n        \"太身命\"\n    ],\n    \"status\": false,\n    \"categoryId\": 35,\n    \"groupId\": 3\n}"
+                                                        },
+                                                        "description": "",
+                                                        "tags": [],
+                                                        "status": "developing",
+                                                        "serverId": "",
+                                                        "operationId": "",
+                                                        "sourceUrl": "",
+                                                        "ordering": 20,
+                                                        "cases": [],
+                                                        "mocks": [],
+                                                        "customApiFields": "{}",
+                                                        "advancedSettings": {}
+                                                    }
+                                                },
+                                                {
+                                                    "name": "修改基本属性",
+                                                    "api": {
+                                                        "id": "24989938",
+                                                        "method": "post",
+                                                        "path": "/attribute/base/update",
+                                                        "parameters": {},
+                                                        "auth": {},
+                                                        "commonParameters": {
+                                                            "query": [],
+                                                            "body": [],
+                                                            "cookie": [],
+                                                            "header": []
+                                                        },
+                                                        "responses": [
+                                                            {
+                                                                "id": "56626456",
+                                                                "name": "成功",
+                                                                "code": 200,
+                                                                "contentType": "json",
+                                                                "jsonSchema": {
+                                                                    "type": "object",
+                                                                    "properties": {}
+                                                                }
+                                                            }
+                                                        ],
+                                                        "responseExamples": [
+                                                            {
+                                                                "name": "成功示例 ",
+                                                                "data": "{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": null\n}",
+                                                                "responseId": 56626456,
+                                                                "ordering": 1
+                                                            },
+                                                            {
+                                                                "name": "基本属性ID不存在",
+                                                                "data": "{\n    \"code\": 1,\n    \"msg\": \"失败\",\n    \"data\": \"基本属性ID不存在\"\n}",
+                                                                "responseId": 56626456,
+                                                                "ordering": 2
+                                                            },
+                                                            {
+                                                                "name": "分类ID不存在",
+                                                                "data": "{\n    \"code\": 1,\n    \"msg\": \"失败\",\n    \"data\": \"分类ID不存在\"\n}",
+                                                                "responseId": 56626456,
+                                                                "ordering": 3
+                                                            },
+                                                            {
+                                                                "name": "仅支持三级分类ID",
+                                                                "data": "{\n    \"code\": 1,\n    \"msg\": \"失败\",\n    \"data\": \"仅支持三级分类ID\"\n}",
+                                                                "responseId": 56626456,
+                                                                "ordering": 4
+                                                            },
+                                                            {
+                                                                "name": "属性分组ID不存在",
+                                                                "data": "{\n    \"code\": 1,\n    \"msg\": \"失败\",\n    \"data\": \"属性分组ID不存在\"\n}",
+                                                                "responseId": 56626456,
+                                                                "ordering": 5
+                                                            }
+                                                        ],
+                                                        "requestBody": {
+                                                            "type": "application/json",
+                                                            "parameters": [],
+                                                            "jsonSchema": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "name": {
+                                                                        "type": "string",
+                                                                        "title": "属性名",
+                                                                        "mock": {
+                                                                            "mock": "@ctitle"
+                                                                        }
+                                                                    },
+                                                                    "valueType": {
+                                                                        "type": "integer",
+                                                                        "minimum": 1,
+                                                                        "maximum": 2,
+                                                                        "title": "值类型",
+                                                                        "description": "1单选 2多选"
+                                                                    },
+                                                                    "values": {
+                                                                        "title": "可选值列表",
+                                                                        "type": [
+                                                                            "array",
+                                                                            "null"
+                                                                        ],
+                                                                        "items": {
+                                                                            "type": "string",
+                                                                            "mock": {
+                                                                                "mock": "@ctitle"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "status": {
+                                                                        "title": "状态",
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "categoryId": {
+                                                                        "title": "所属分类ID",
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "groupId": {
+                                                                        "title": "属性分组ID",
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "id": {
+                                                                        "type": "integer",
+                                                                        "title": "属性id"
+                                                                    }
+                                                                },
+                                                                "x-apifox-orders": [
+                                                                    "id",
+                                                                    "name",
+                                                                    "valueType",
+                                                                    "values",
+                                                                    "status",
+                                                                    "categoryId",
+                                                                    "groupId"
+                                                                ],
+                                                                "required": [
+                                                                    "name",
+                                                                    "valueType",
+                                                                    "values",
+                                                                    "status",
+                                                                    "categoryId",
+                                                                    "groupId",
+                                                                    "id"
+                                                                ]
+                                                            },
+                                                            "sampleValue": "{\n    \"id\": 3,\n    \"name\": \"况各必或\",\n    \"valueType\": 1,\n    \"values\": [\n        \"据他今两\",\n        \"王见美员\",\n        \"团完运子向\",\n        \"等道特文它度\",\n        \"万图教压运外\"\n    ],\n    \"status\": false,\n    \"categoryId\": 33,\n    \"groupId\": 1\n}"
+                                                        },
+                                                        "description": "",
+                                                        "tags": [],
+                                                        "status": "developing",
+                                                        "serverId": "",
+                                                        "operationId": "",
+                                                        "sourceUrl": "",
+                                                        "ordering": 26,
+                                                        "cases": [],
+                                                        "mocks": [],
+                                                        "customApiFields": "{}",
+                                                        "advancedSettings": {}
+                                                    }
+                                                },
+                                                {
+                                                    "name": "删除基本属性",
+                                                    "api": {
+                                                        "id": "24991193",
+                                                        "method": "post",
+                                                        "path": "/attribute/base/delete",
+                                                        "parameters": {},
+                                                        "auth": {},
+                                                        "commonParameters": {
+                                                            "query": [],
+                                                            "body": [],
+                                                            "cookie": [],
+                                                            "header": []
+                                                        },
+                                                        "responses": [
+                                                            {
+                                                                "id": "56629442",
+                                                                "name": "成功",
+                                                                "code": 200,
+                                                                "contentType": "json",
+                                                                "jsonSchema": {
+                                                                    "type": "object",
+                                                                    "properties": {}
+                                                                }
+                                                            }
+                                                        ],
+                                                        "responseExamples": [
+                                                            {
+                                                                "name": "成功示例 ",
+                                                                "data": "{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": null\n}",
+                                                                "responseId": 56629442,
+                                                                "ordering": 1
+                                                            },
+                                                            {
+                                                                "name": "属性分组ID不存在",
+                                                                "data": "{\n    \"code\": 1,\n    \"msg\": \"失败\",\n    \"data\": \"属性分组ID不存在\"\n}",
+                                                                "responseId": 56629442,
+                                                                "ordering": 2
+                                                            }
+                                                        ],
+                                                        "requestBody": {
+                                                            "type": "application/json",
+                                                            "parameters": [],
+                                                            "jsonSchema": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "id": {
+                                                                        "title": "属性id",
+                                                                        "type": "integer"
+                                                                    }
+                                                                },
+                                                                "x-apifox-orders": [
+                                                                    "id"
+                                                                ],
+                                                                "required": [
+                                                                    "id"
+                                                                ]
+                                                            },
+                                                            "sampleValue": "{\n    \"id\": 41\n}"
+                                                        },
+                                                        "description": "",
+                                                        "tags": [],
+                                                        "status": "developing",
+                                                        "serverId": "",
+                                                        "operationId": "",
+                                                        "sourceUrl": "",
+                                                        "ordering": 36,
+                                                        "cases": [],
+                                                        "mocks": [],
+                                                        "customApiFields": "{}",
+                                                        "advancedSettings": {}
+                                                    }
+                                                }
+                                            ]
                                         },
                                         {
                                             "name": "销售属性",
@@ -2113,7 +2655,513 @@
                                             "preProcessors": [],
                                             "postProcessors": [],
                                             "auth": {},
-                                            "items": []
+                                            "items": [
+                                                {
+                                                    "name": "根据分类ID分页获取销售属性列表",
+                                                    "api": {
+                                                        "id": "24991355",
+                                                        "method": "get",
+                                                        "path": "/attribute/sale/page",
+                                                        "parameters": {
+                                                            "query": [
+                                                                {
+                                                                    "required": true,
+                                                                    "description": "当前页码",
+                                                                    "type": "integer",
+                                                                    "name": "pageNumber",
+                                                                    "sampleValue": "1"
+                                                                },
+                                                                {
+                                                                    "required": true,
+                                                                    "description": "页面大小",
+                                                                    "type": "integer",
+                                                                    "name": "pageSize",
+                                                                    "sampleValue": "10"
+                                                                },
+                                                                {
+                                                                    "required": false,
+                                                                    "description": "分类ID",
+                                                                    "type": "integer",
+                                                                    "name": "categoryId",
+                                                                    "sampleValue": ""
+                                                                }
+                                                            ]
+                                                        },
+                                                        "auth": {},
+                                                        "commonParameters": {
+                                                            "query": [],
+                                                            "body": [],
+                                                            "cookie": [],
+                                                            "header": []
+                                                        },
+                                                        "responses": [
+                                                            {
+                                                                "id": "56629694",
+                                                                "name": "成功",
+                                                                "code": 200,
+                                                                "contentType": "json",
+                                                                "jsonSchema": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "code": {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        "msg": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "data": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "list": {
+                                                                                    "type": "array",
+                                                                                    "items": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                            "id": {
+                                                                                                "type": "integer",
+                                                                                                "title": "属性id"
+                                                                                            },
+                                                                                            "name": {
+                                                                                                "type": "string",
+                                                                                                "title": "属性名"
+                                                                                            },
+                                                                                            "valueType": {
+                                                                                                "type": "integer",
+                                                                                                "title": "值类型",
+                                                                                                "description": "1单选 2多选"
+                                                                                            },
+                                                                                            "values": {
+                                                                                                "title": "可选值列表",
+                                                                                                "type": [
+                                                                                                    "array",
+                                                                                                    "null"
+                                                                                                ],
+                                                                                                "items": {
+                                                                                                    "type": "string"
+                                                                                                }
+                                                                                            },
+                                                                                            "status": {
+                                                                                                "type": "boolean",
+                                                                                                "title": "状态"
+                                                                                            },
+                                                                                            "categoryId": {
+                                                                                                "type": "integer",
+                                                                                                "title": "所属分类ID"
+                                                                                            },
+                                                                                            "categoryName": {
+                                                                                                "type": "string",
+                                                                                                "title": "所属分类名称"
+                                                                                            }
+                                                                                        },
+                                                                                        "required": [
+                                                                                            "id",
+                                                                                            "name",
+                                                                                            "valueType",
+                                                                                            "values",
+                                                                                            "status",
+                                                                                            "categoryId",
+                                                                                            "categoryName"
+                                                                                        ],
+                                                                                        "x-apifox-orders": [
+                                                                                            "id",
+                                                                                            "name",
+                                                                                            "valueType",
+                                                                                            "values",
+                                                                                            "status",
+                                                                                            "categoryId",
+                                                                                            "categoryName"
+                                                                                        ]
+                                                                                    }
+                                                                                },
+                                                                                "pageNumber": {
+                                                                                    "type": "integer"
+                                                                                },
+                                                                                "pageSize": {
+                                                                                    "type": "integer"
+                                                                                },
+                                                                                "totalPage": {
+                                                                                    "type": "integer"
+                                                                                },
+                                                                                "totalRow": {
+                                                                                    "type": "integer"
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "list",
+                                                                                "pageNumber",
+                                                                                "pageSize",
+                                                                                "totalPage",
+                                                                                "totalRow"
+                                                                            ],
+                                                                            "x-apifox-orders": [
+                                                                                "list",
+                                                                                "pageNumber",
+                                                                                "pageSize",
+                                                                                "totalPage",
+                                                                                "totalRow"
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "code",
+                                                                        "msg",
+                                                                        "data"
+                                                                    ],
+                                                                    "x-apifox-orders": [
+                                                                        "code",
+                                                                        "msg",
+                                                                        "data"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "responseExamples": [
+                                                            {
+                                                                "name": "成功示例 ",
+                                                                "data": "{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": {\n        \"list\": [\n            {\n                \"id\": 8,\n                \"name\": \"划因已\",\n                \"valueType\": 2,\n                \"values\": [\n                    \"委能路进离领\",\n                    \"全律回记干教\",\n                    \"太身命\"\n                ],\n                \"status\": false,\n                \"categoryId\": 35,\n                \"categoryName\": \"挂机1.5匹\"\n            },\n            {\n                \"id\": 9,\n                \"name\": \"划因已\",\n                \"valueType\": 2,\n                \"values\": [\n                    \"委能路进离领\",\n                    \"全律回记干教\",\n                    \"太身命\"\n                ],\n                \"status\": false,\n                \"categoryId\": 35,\n                \"categoryName\": \"挂机1.5匹\"\n            },\n            {\n                \"id\": 10,\n                \"name\": \"划因已\",\n                \"valueType\": 2,\n                \"values\": [\n                    \"委能路进离领\",\n                    \"全律回记干教\",\n                    \"太身命\"\n                ],\n                \"status\": false,\n                \"categoryId\": 35,\n                \"categoryName\": \"挂机1.5匹\"\n            },\n            {\n                \"id\": 11,\n                \"name\": \"划因已\",\n                \"valueType\": 1,\n                \"values\": [\n                    \"委能路进离领\",\n                    \"全律回记干教\",\n                    \"太身命\"\n                ],\n                \"status\": false,\n                \"categoryId\": 35,\n                \"categoryName\": \"挂机1.5匹\"\n            },\n            {\n                \"id\": 12,\n                \"name\": \"划因已\",\n                \"valueType\": 1,\n                \"values\": [\n                    \"委能路进离领\",\n                    \"全律回记干教\",\n                    \"太身命\"\n                ],\n                \"status\": false,\n                \"categoryId\": 35,\n                \"categoryName\": \"挂机1.5匹\"\n            },\n            {\n                \"id\": 13,\n                \"name\": \"划因已\",\n                \"valueType\": 1,\n                \"values\": [\n                    \"委能路进离领\",\n                    \"全律回记干教\",\n                    \"太身命\"\n                ],\n                \"status\": false,\n                \"categoryId\": 35,\n                \"categoryName\": \"挂机1.5匹\"\n            },\n            {\n                \"id\": 14,\n                \"name\": \"划因已\",\n                \"valueType\": 1,\n                \"values\": [\n                    \"委能路进离领\",\n                    \"全律回记干教\",\n                    \"太身命\"\n                ],\n                \"status\": false,\n                \"categoryId\": 35,\n                \"categoryName\": \"挂机1.5匹\"\n            }\n        ],\n        \"pageNumber\": 1,\n        \"pageSize\": 10,\n        \"totalPage\": 1,\n        \"totalRow\": 7\n    }\n}",
+                                                                "responseId": 56629694,
+                                                                "ordering": 1
+                                                            }
+                                                        ],
+                                                        "requestBody": {
+                                                            "type": "none",
+                                                            "parameters": []
+                                                        },
+                                                        "description": "",
+                                                        "tags": [],
+                                                        "status": "developing",
+                                                        "serverId": "",
+                                                        "operationId": "",
+                                                        "sourceUrl": "",
+                                                        "ordering": 15,
+                                                        "cases": [],
+                                                        "mocks": [],
+                                                        "customApiFields": "{}",
+                                                        "advancedSettings": {}
+                                                    }
+                                                },
+                                                {
+                                                    "name": "新增销售属性",
+                                                    "api": {
+                                                        "id": "24991356",
+                                                        "method": "post",
+                                                        "path": "/attribute/sale/create",
+                                                        "parameters": {},
+                                                        "auth": {},
+                                                        "commonParameters": {
+                                                            "query": [],
+                                                            "body": [],
+                                                            "cookie": [],
+                                                            "header": []
+                                                        },
+                                                        "responses": [
+                                                            {
+                                                                "id": "56629695",
+                                                                "name": "成功",
+                                                                "code": 200,
+                                                                "contentType": "json",
+                                                                "jsonSchema": {
+                                                                    "type": "object",
+                                                                    "properties": {}
+                                                                }
+                                                            }
+                                                        ],
+                                                        "responseExamples": [
+                                                            {
+                                                                "name": "成功示例 ",
+                                                                "data": "{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": null\n}",
+                                                                "responseId": 56629695,
+                                                                "ordering": 1
+                                                            },
+                                                            {
+                                                                "name": "分类ID不存在",
+                                                                "data": "{\n    \"code\": 1,\n    \"msg\": \"失败\",\n    \"data\": \"分类ID不存在\"\n}",
+                                                                "responseId": 56629695,
+                                                                "ordering": 2
+                                                            },
+                                                            {
+                                                                "name": "仅支持三级分类ID",
+                                                                "data": "{\n    \"code\": 1,\n    \"msg\": \"失败\",\n    \"data\": \"仅支持三级分类ID\"\n}",
+                                                                "responseId": 56629695,
+                                                                "ordering": 3
+                                                            }
+                                                        ],
+                                                        "requestBody": {
+                                                            "type": "application/json",
+                                                            "parameters": [],
+                                                            "jsonSchema": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "name": {
+                                                                        "type": "string",
+                                                                        "title": "属性名",
+                                                                        "mock": {
+                                                                            "mock": "@ctitle"
+                                                                        }
+                                                                    },
+                                                                    "valueType": {
+                                                                        "type": "integer",
+                                                                        "minimum": 1,
+                                                                        "maximum": 2,
+                                                                        "title": "值类型",
+                                                                        "description": "1单选 2多选"
+                                                                    },
+                                                                    "values": {
+                                                                        "title": "可选值列表",
+                                                                        "type": [
+                                                                            "array",
+                                                                            "null"
+                                                                        ],
+                                                                        "items": {
+                                                                            "type": "string",
+                                                                            "mock": {
+                                                                                "mock": "@ctitle"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "status": {
+                                                                        "title": "状态",
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "categoryId": {
+                                                                        "title": "所属分类ID",
+                                                                        "type": "integer"
+                                                                    }
+                                                                },
+                                                                "x-apifox-orders": [
+                                                                    "name",
+                                                                    "valueType",
+                                                                    "values",
+                                                                    "status",
+                                                                    "categoryId"
+                                                                ],
+                                                                "required": [
+                                                                    "name",
+                                                                    "valueType",
+                                                                    "values",
+                                                                    "status",
+                                                                    "categoryId"
+                                                                ]
+                                                            },
+                                                            "sampleValue": "{\n    \"name\": \"技切象有\",\n    \"valueType\": 1,\n    \"values\": [\n        \"先名县格思本\",\n        \"究压且离身\",\n        \"年规到气连\"\n    ],\n    \"status\": true,\n    \"categoryId\": 2\n}"
+                                                        },
+                                                        "description": "",
+                                                        "tags": [],
+                                                        "status": "developing",
+                                                        "serverId": "",
+                                                        "operationId": "",
+                                                        "sourceUrl": "",
+                                                        "ordering": 23,
+                                                        "cases": [],
+                                                        "mocks": [],
+                                                        "customApiFields": "{}",
+                                                        "advancedSettings": {}
+                                                    }
+                                                },
+                                                {
+                                                    "name": "修改销售属性",
+                                                    "api": {
+                                                        "id": "24991357",
+                                                        "method": "post",
+                                                        "path": "/attribute/sale/update",
+                                                        "parameters": {},
+                                                        "auth": {},
+                                                        "commonParameters": {
+                                                            "query": [],
+                                                            "body": [],
+                                                            "cookie": [],
+                                                            "header": []
+                                                        },
+                                                        "responses": [
+                                                            {
+                                                                "id": "56629696",
+                                                                "name": "成功",
+                                                                "code": 200,
+                                                                "contentType": "json",
+                                                                "jsonSchema": {
+                                                                    "type": "object",
+                                                                    "properties": {}
+                                                                }
+                                                            }
+                                                        ],
+                                                        "responseExamples": [
+                                                            {
+                                                                "name": "成功示例 ",
+                                                                "data": "{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": null\n}",
+                                                                "responseId": 56629696,
+                                                                "ordering": 1
+                                                            },
+                                                            {
+                                                                "name": "销售属性ID不存在",
+                                                                "data": "{\n    \"code\": 1,\n    \"msg\": \"失败\",\n    \"data\": \"销售属性ID不存在\"\n}",
+                                                                "responseId": 56629696,
+                                                                "ordering": 2
+                                                            },
+                                                            {
+                                                                "name": "分类ID不存在",
+                                                                "data": "{\n    \"code\": 1,\n    \"msg\": \"失败\",\n    \"data\": \"分类ID不存在\"\n}",
+                                                                "responseId": 56629696,
+                                                                "ordering": 3
+                                                            },
+                                                            {
+                                                                "name": "仅支持三级分类ID",
+                                                                "data": "{\n    \"code\": 1,\n    \"msg\": \"失败\",\n    \"data\": \"仅支持三级分类ID\"\n}",
+                                                                "responseId": 56629696,
+                                                                "ordering": 4
+                                                            }
+                                                        ],
+                                                        "requestBody": {
+                                                            "type": "application/json",
+                                                            "parameters": [],
+                                                            "jsonSchema": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "name": {
+                                                                        "type": "string",
+                                                                        "title": "属性名",
+                                                                        "mock": {
+                                                                            "mock": "@ctitle"
+                                                                        }
+                                                                    },
+                                                                    "valueType": {
+                                                                        "type": "integer",
+                                                                        "minimum": 1,
+                                                                        "maximum": 2,
+                                                                        "title": "值类型",
+                                                                        "description": "1单选 2多选"
+                                                                    },
+                                                                    "values": {
+                                                                        "title": "可选值列表",
+                                                                        "type": [
+                                                                            "array",
+                                                                            "null"
+                                                                        ],
+                                                                        "items": {
+                                                                            "type": "string",
+                                                                            "mock": {
+                                                                                "mock": "@ctitle"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "status": {
+                                                                        "title": "状态",
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "categoryId": {
+                                                                        "title": "所属分类ID",
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "id": {
+                                                                        "type": "integer",
+                                                                        "title": "属性id"
+                                                                    }
+                                                                },
+                                                                "x-apifox-orders": [
+                                                                    "id",
+                                                                    "name",
+                                                                    "valueType",
+                                                                    "values",
+                                                                    "status",
+                                                                    "categoryId"
+                                                                ],
+                                                                "required": [
+                                                                    "name",
+                                                                    "valueType",
+                                                                    "values",
+                                                                    "status",
+                                                                    "categoryId",
+                                                                    "id"
+                                                                ]
+                                                            },
+                                                            "sampleValue": "{\n    \"id\": 17,\n    \"name\": \"展石交而\",\n    \"valueType\": 2,\n    \"values\": [\n        \"儿条习产治\",\n        \"你飞通局系\",\n        \"省算通厂\",\n        \"表少往学\",\n        \"色文业内利领\"\n    ],\n    \"status\": false,\n    \"categoryId\": 43\n}"
+                                                        },
+                                                        "description": "",
+                                                        "tags": [],
+                                                        "status": "developing",
+                                                        "serverId": "",
+                                                        "operationId": "",
+                                                        "sourceUrl": "",
+                                                        "ordering": 31,
+                                                        "cases": [],
+                                                        "mocks": [],
+                                                        "customApiFields": "{}",
+                                                        "advancedSettings": {}
+                                                    }
+                                                },
+                                                {
+                                                    "name": "删除销售属性",
+                                                    "api": {
+                                                        "id": "24991358",
+                                                        "method": "post",
+                                                        "path": "/attribute/sale/delete",
+                                                        "parameters": {},
+                                                        "auth": {},
+                                                        "commonParameters": {
+                                                            "query": [],
+                                                            "body": [],
+                                                            "cookie": [],
+                                                            "header": []
+                                                        },
+                                                        "responses": [
+                                                            {
+                                                                "id": "56629697",
+                                                                "name": "成功",
+                                                                "code": 200,
+                                                                "contentType": "json",
+                                                                "jsonSchema": {
+                                                                    "type": "object",
+                                                                    "properties": {}
+                                                                }
+                                                            }
+                                                        ],
+                                                        "responseExamples": [
+                                                            {
+                                                                "name": "成功示例 ",
+                                                                "data": "{\n    \"code\": 0,\n    \"msg\": \"成功\",\n    \"data\": null\n}",
+                                                                "responseId": 56629697,
+                                                                "ordering": 1
+                                                            },
+                                                            {
+                                                                "name": "销售属性ID不存在",
+                                                                "data": "{\n    \"code\": 1,\n    \"msg\": \"失败\",\n    \"data\": \"销售属性ID不存在\"\n}",
+                                                                "responseId": 56629697,
+                                                                "ordering": 2
+                                                            }
+                                                        ],
+                                                        "requestBody": {
+                                                            "type": "application/json",
+                                                            "parameters": [],
+                                                            "jsonSchema": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "id": {
+                                                                        "title": "属性id",
+                                                                        "type": "integer"
+                                                                    }
+                                                                },
+                                                                "x-apifox-orders": [
+                                                                    "id"
+                                                                ],
+                                                                "required": [
+                                                                    "id"
+                                                                ]
+                                                            },
+                                                            "sampleValue": "{\n    \"id\": 41\n}"
+                                                        },
+                                                        "description": "",
+                                                        "tags": [],
+                                                        "status": "developing",
+                                                        "serverId": "",
+                                                        "operationId": "",
+                                                        "sourceUrl": "",
+                                                        "ordering": 42,
+                                                        "cases": [],
+                                                        "mocks": [],
+                                                        "customApiFields": "{}",
+                                                        "advancedSettings": {}
+                                                    }
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -2278,7 +3326,7 @@
             "name": "云端 Mock",
             "type": "cloudMock",
             "visibility": "protected",
-            "ordering": 0,
+            "ordering": 24,
             "id": "3270159"
         }
     ],
@@ -2303,8 +3351,8 @@
         "postProcessors": [],
         "auth": {},
         "cloudMock": {
-            "security": "free",
-            "token": "jj9sIh7Iu9YdQaWNg75m0NwbcbSBCEbZ",
+            "security": "token",
+            "token": "PchWQr8SfJhecBLjJZL53hB1u9zBb7dr",
             "enable": false,
             "tokenKey": "apifoxToken"
         },
